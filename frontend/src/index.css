@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Poppins:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,600;0,800;1,400&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+
+    body {
+        @apply bg-slate-800
+    }
+
+    .input {
+        @apply px-4 py-2 shadow-lg font-[600] text-black rounded-md border-none outline-none 
+    }
+
+    .btn {
+        @apply py-2 rounded-md px-4 font-[600] shadow-md nice-hover
+    }
+
+    .nice-hover {
+        @apply transition duration-[200ms] hover:translate-y-[-3px]
+    }
+}
