@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Pokemon, PokemonCard } from "./AllPokemonsPage";
+import { Link } from "react-router-dom";
 
 type Props = {};
 
@@ -26,6 +27,14 @@ const OwnedPokemons = (props: Props) => {
           <PokemonCard pokemon={pokemon} key={pokemon.id} />
         ))}
       </div>
+      {pokemons.length === 0 && (
+        <>
+          <p>You do not own any pokemons!</p>
+          <Link className="underline" to="/pokemons/catch">
+            Catch some here!
+          </Link>
+        </>
+      )}
     </div>
   );
 };
