@@ -40,6 +40,7 @@ class AddPokemonView(APIView):
         data = self.request.data
         user = request.user
         pokemon_id = data.get('pokemon_id')
+        level = data.get('level')
         pokemon = Pokemon.objects.get(id=pokemon_id)
         if (pokemon.owner_id and pokemon.owner_id != user.id):
             return Response({'msg': 'Pokemon already belongs to someone else'}, status=status.HTTP_403_FORBIDDEN)
@@ -47,6 +48,7 @@ class AddPokemonView(APIView):
             return Response({'msg': 'You already own this pokemon'}, status=status.HTTP_403_FORBIDDEN)
 
         pokemon.owner_id = user.id
+        pokemon.level = level
         pokemon.save()
         return Response({'msg': "Pokemon successfully captured!"}, status=status.HTTP_200_OK)
 
@@ -64,3 +66,9 @@ class ReleasePokemonView(APIView):
         pokemon.owner_id = None
         pokemon.save()
         return Response({'msg': "Successfully disowned pokemon!"}, status=status.HTTP_200_OK)
+
+
+class AvailablePokemonsView(ListAPIView):
+    permission_classes = (permissions.AllowAny, )
+    queryset = Pokemon.objects.filter(owner_id=None)
+    serializer_class = PokemonSerializer

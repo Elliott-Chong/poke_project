@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useGlobalContext } from "../context";
 import { Menu } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import poke_ball from "../images/pokeball.png";
 
 interface Props {}
 
@@ -33,16 +34,6 @@ const NavBar: React.FC = (props: Props) => {
             <ChevronDownIcon className="ml-2 h-5 w-5" />
           </Menu.Button>
           <Menu.Items className="absolute right-0 flex flex-col mt-2 w-full overflow-hidden divide-gray-100 rounded-md bg-slate-500 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-            <Menu.Item>
-              {({ active }) => (
-                <Link
-                  className={`py-2 px-4 font-mono ${active && "bg-blue-500"}`}
-                  to="/pokemons/all"
-                >
-                  All
-                </Link>
-              )}
-            </Menu.Item>
             <Menu.Item>
               {({ active }) => (
                 <Link
@@ -83,10 +74,10 @@ const NavBar: React.FC = (props: Props) => {
   return (
     <nav className="py-6 px-12 flex text-white items-center font-poppins">
       <Link
-        className="text-3xl nice-hover font-bold font-mono border-4 border-white py-2 px-4 rounded-lg"
+        className="text-3xl nice-hover font-bold font-mono w-20 hover:rotate-180 py-2 px-4 rounded-lg"
         to="/"
       >
-        Pokemon!
+        <img src={poke_ball} alt="pokeballicon" className="w-full" />
       </Link>
       <div className="ml-auto text-xl">
         <ul className="flex gap-4 items-center font-bold">
