@@ -32,15 +32,15 @@ const CatchPokemonPage: React.FC = (props: Props) => {
     // check if guess is larger or less than answer
     if (parseInt(guess) > answer) {
       setAlert("Too high!");
+      setTries((tries) => tries - 1);
     } else if (parseInt(guess) < answer) {
       setAlert("Too low!");
+      setTries((tries) => tries - 1);
     } else {
       // pokemon has been caught
       catchPokemon(pokemon);
       window.alert(pokemon.name + " of " + level + " level has been caught!");
     }
-
-    setTries((tries) => tries - 1);
     setGuess("");
   };
 

@@ -21,7 +21,7 @@ const OwnedPokemons = (props: Props) => {
 
   return (
     <div className="p-12 text-white font-poppins">
-      <h1 className="mb-4 text-3xl">Owned Pokemons</h1>
+      <h1 className="mb-4 text-3xl font-bold">Owned Pokemons</h1>
       <div className="grid grid-cols-6 gap-4">
         {pokemons.map((pokemon) => (
           <PokemonCard owned pokemon={pokemon} key={pokemon.id} />
