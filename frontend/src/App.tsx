@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { ToastContainer } from "react-toastify";
-import { Redirect, Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import "react-toastify/dist/ReactToastify.css";
 import LoginPage from "./pages/LoginPage";
@@ -16,10 +16,11 @@ interface Props {}
 const App: React.FC<Props> = () => {
   const { loadUser, state } = useGlobalContext();
   const { loading, is_authenticated } = state;
+  const location = useLocation();
 
   useEffect(() => {
     loadUser();
-  }, [loadUser]);
+  }, [loadUser, location]);
 
   return (
     <>

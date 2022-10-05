@@ -56,6 +56,7 @@ export const AppContextWrapper: React.FC<{ children: React.ReactNode }> = ({
   const loadUser: AppContextInterface["loadUser"] =
     React.useCallback(async () => {
       dispatch({ type: "SET_LOADING", payload: true });
+      console.log("loaduser called");
       try {
         const token = localStorage.getItem("token");
         if (token) {
