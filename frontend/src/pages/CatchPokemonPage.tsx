@@ -27,6 +27,7 @@ const CatchPokemonPage: React.FC = (props: Props) => {
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key !== "Enter") return;
+    if (isNaN(parseInt(guess))) return;
 
     // check if guess is larger or less than answer
     if (parseInt(guess) > answer) {
