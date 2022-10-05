@@ -6,7 +6,8 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { AppContextWrapper } from "./context";
 import axios from "axios";
 // axios.defaults.baseURL = "http://192.168.50.74:8000";
-axios.defaults.baseURL = "http://localhost";
+axios.defaults.baseURL =
+  "http://ec2-13-215-228-145.ap-southeast-1.compute.amazonaws.com";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
