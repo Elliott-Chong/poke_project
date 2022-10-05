@@ -2,11 +2,14 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Pokemon, PokemonCard } from "./AllPokemonsPage";
 import { Link } from "react-router-dom";
+import { useGlobalContext } from "../context";
 
 type Props = {};
 
 const OwnedPokemons = (props: Props) => {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
+  const { state } = useGlobalContext();
+  const { is_authenticated } = state;
   useEffect(() => {
     const fetchPokemons = async () => {
       try {
@@ -17,7 +20,7 @@ const OwnedPokemons = (props: Props) => {
       }
     };
     fetchPokemons();
-  }, []);
+  }, [is_authenticated]);
 
   return (
     <div className="p-12 text-white font-poppins">
